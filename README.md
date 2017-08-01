@@ -1,4 +1,4 @@
-* Bash Completion inside ROOT files
+# Bash Completion inside ROOT files
 
 1. Put `rootls.py` in your `PATH`.
 2. `.bash_completion` in your `HOME`
