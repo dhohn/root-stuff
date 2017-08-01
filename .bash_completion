@@ -1,0 +1,24 @@
+_rootls()
+{
+    local cur prev
+    cur=${COMP_WORDS[COMP_CWORD]}
+    prev=${COMP_WORDS[COMP_CWORD-1]}
+
+    #echo cur $cur
+    #echo prev $prev
+    if [[ $prev == *.root ]]; then
+	list=$(rootls.py ${prev} ${cur})
+    else
+	_filedir root
+	return 0
+    fi
+
+    #list=$(python rootls.py ${prev})
+    #list="what is this"
+
+    COMPREPLY=( $(compgen -W "$list" -- ${cur}))
+    
+    
+}
+
+complete -F _rootls -o nospace -o filenames rootls.py
