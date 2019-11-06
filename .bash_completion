@@ -13,7 +13,7 @@ _rootls()
 	return 0
     fi
 
-    #list=$(python rootls.py ${prev})
+    #list=$(PYTHONPATH="/usr/lib64/python2.6/site-packages" python rootls.py ${prev})
     #list="what is this"
 
     COMPREPLY=( $(compgen -W "$list" -- ${cur}))
@@ -22,3 +22,4 @@ _rootls()
 }
 
 complete -F _rootls -o nospace -o filenames rootls.py
+complete -F _rootls -o nospace -o filenames printHistoBins.py
